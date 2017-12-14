@@ -1,0 +1,241 @@
+@font-face {
+  font-family: Roboto;
+  src: url(fonts/Roboto.eot);
+  src: local(Roboto), url(fonts/Roboto.ttf);
+}
+
+@font-face {
+   font-family: 'Open Sans';
+   src: url(fonts/OpenSans-Regular.eot);
+   src: local(OpenSans-Regular), url(fonts/OpenSans-Regular.ttf);
+}
+
+body {
+  width: 100%;
+
+}
+
+body a {
+  text-decoration: none;
+  font-family: 'Open Sans';
+}
+
+.wrapper {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+
+.menu {
+  padding: 20px 0 10px 0;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #000;
+}
+
+.main-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-menu a {
+  color: #fff;
+}
+
+.main-menu li:not(:first-child) {
+  padding-top: 5px;
+}
+
+.main-menu a:hover {
+  color: #ac66d6;
+}
+
+header {
+  background-image : url(img/farback.jpg);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  text-align: center;
+  color: #fff;
+}
+
+.slider {
+  padding-top: 250px;
+  padding-bottom: 150px;
+}
+
+.slider h2 {
+  font-size: 40px;
+  line-height: 40px;
+  margin-bottom: 25px;
+  font-family: 'Open Sans';
+}
+
+.slider h1 {
+  font-family: "Roboto",  Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 75px;
+  margin-bottom: 50px;
+}
+
+button {
+  color: #fff;
+  background-color: #ffff00;
+  border-color: #fed136;
+
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 3px;
+  font-size: 18px;
+  padding: 20px 40px;
+}
+
+/*.top {
+  top: 0;
+  background: #000;
+}*/
+
+.about-game, .controls {
+  padding: 120px 0 100px 0;
+}
+
+.about-game h3, .description h4, .controls h4, .screenshots h4 {
+  font-size: 40px;
+  margin-bottom: 15px;
+  font-family: "Roboto",  Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+}
+
+.about-game p, .description, .controls p {
+  font-family: 'Open Sans';
+  text-transform: none;
+  font-weight: 400;
+  color: #777;
+  margin: 15px 0;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.about-parts {
+  display: flex;
+  justify-content: space-around;
+      margin-top: 70px;
+
+}
+
+.about-parts section {
+  width: 25%;
+  text-align: center;
+  margin: 15px 0;
+  text-transform: capitalize;
+  font-family: "Roboto",  Arial, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.img-circle {
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.description {
+  background-color: #eee;
+  padding: 80px 0 50px 0;
+}
+
+.description .wrapper, .controls .wrapper .control {
+  display: flex;
+  justify-content: space-around;
+}
+
+.description p, .description img {
+  width: 50%;
+  font-size: 16px;
+}
+
+.description img {
+    height: 50%;
+}
+
+.description p {
+  padding-top: 60px;
+}
+
+.description h4, .controls h4, .screenshots h4 {
+  width: 100%;
+  color: #000;
+      margin-bottom: 80px;
+}
+
+.control.left {
+  //margin-bottom: 80px;
+}
+
+.controls p {
+margin-top: 65px;
+}
+
+.screenshots {
+  margin-top: 100px;
+}
+
+.screenshots img {
+  width: 50%;
+  height: 50%;
+  //margin-bottom: 100px;
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+footer {
+  background-color: #ededed;
+  color: #544f4d;
+  height: 120px;
+  font-size: 11px;
+  padding-top: 20px;
+}
+
+footer p {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+footer p:first-child {
+  font-family: "Roboto",  Arial, sans-serif;
+  font-weight: 700;
+}
+
+.footer-bottom {
+  background: black;
+  text-align: center;
+  padding: 20px;
+  font-family: 'Open Sans';
+}
+
+footer a {
+  color: #fff;
+
+}
+
+footer a:hover {
+  color: #ac66d6;
+}
