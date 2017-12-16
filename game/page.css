@@ -5,14 +5,13 @@
 }
 
 @font-face {
-   font-family: 'Open Sans';
-   src: url(fonts/OpenSans-Regular.eot);
-   src: local(OpenSans-Regular), url(fonts/OpenSans-Regular.ttf);
+  font-family: 'Open Sans';
+  src: url(fonts/OpenSans-Regular.eot);
+  src: local(OpenSans-Regular), url(fonts/OpenSans-Regular.ttf);
 }
 
 body {
   width: 100%;
-
 }
 
 body a {
@@ -25,7 +24,6 @@ body a {
   margin: 0 auto;
 }
 
-
 .menu {
   padding: 20px 0 10px 0;
   position: fixed;
@@ -35,21 +33,25 @@ body a {
   background-color: #000;
 }
 
-.main-menu {
+.menu ul{
   display: flex;
   justify-content: space-between;
 }
 
-.main-menu a {
+.menu a {
   color: #fff;
 }
 
-.main-menu li:not(:first-child) {
+.menu li:not(:first-child) {
   padding-top: 5px;
 }
 
-.main-menu a:hover {
+.menu a:hover {
   color: #ac66d6;
+}
+
+.menu li:first-child {
+  margin-right: 100px;
 }
 
 header {
@@ -74,13 +76,12 @@ header {
   font-size: 40px;
   line-height: 40px;
   margin-bottom: 25px;
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', Arial, sans-serif;
 }
 
 .slider h1 {
-  font-family: "Roboto",  Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
   font-size: 75px;
   line-height: 75px;
   margin-bottom: 50px;
@@ -88,12 +89,12 @@ header {
 
 button {
   background-color: #ffff00;
-  border-color: #fed136;
+  border-color: #ffff00;
   text-transform: uppercase;
-  font-weight: 700;
   border-radius: 3px;
   font-size: 18px;
   padding: 20px 40px;
+  border-style: none;
 }
 
 button a {
@@ -102,32 +103,28 @@ button a {
 
 button:hover {
   background-color: #ac66d6;
-  border-color: #7b4899;
+  border-color: #7ac66d6;
   transition-duration: 0.8s;
 }
 
-/*.top {
-  top: 0;
-  background: #000;
-}*/
-
-.about-game, .controls, .play, .screenshots {
+.about, .controls, .play, .screenshots {
   padding: 120px 0 100px 0;
 }
 
-.about-game h3, .description h4, .controls h4, .screenshots h4, .play h4 {
+h3 {
   font-size: 40px;
   margin-bottom: 15px;
   font-family: "Roboto",  Arial, sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
   text-align: center;
+  width: 100%;
+  color: #000;
+  margin-bottom: 80px;
 }
 
-.about-game p, .description, .controls p {
-  font-family: 'Open Sans';
+.about p, .description, .controls p {
+  font-family: 'Open Sans', Arial, sans-serif;
   text-transform: none;
-  font-weight: 400;
   color: #777;
   margin: 15px 0;
   font-size: 14px;
@@ -135,10 +132,7 @@ button:hover {
 }
 
 .about-parts {
-  display: flex;
-  justify-content: space-around;
-      margin-top: 70px;
-
+  margin-top: 70px;
 }
 
 .about-parts section {
@@ -147,7 +141,6 @@ button:hover {
   margin: 15px 0;
   text-transform: capitalize;
   font-family: "Roboto",  Arial, sans-serif;
-  font-weight: 700;
   font-size: 18px;
 }
 
@@ -161,32 +154,17 @@ button:hover {
   padding: 80px 0 50px 0;
 }
 
-.description .wrapper, .controls .wrapper .control {
-  display: flex;
-  justify-content: space-around;
-}
-
 .description p, .description img {
   width: 50%;
   font-size: 16px;
 }
 
 .description img {
-    height: 50%;
-}
-
-.description h4, .controls h4, .screenshots h4, .play h4 {
-  width: 100%;
-  color: #000;
-  margin-bottom: 80px;
-}
-
-.control.left {
-  //margin-bottom: 80px;
+  height: 50%;
 }
 
 .controls p {
-margin-top: 65px;
+  margin-top: 65px;
 }
 
 .screenshots {
@@ -196,7 +174,6 @@ margin-top: 65px;
 .screenshots img {
   width: 50%;
   height: 50%;
-  //margin-bottom: 100px;
   padding: 10px;
 }
 
@@ -205,15 +182,14 @@ margin-top: 65px;
   justify-content: space-around;
 }
 
-.play h4 {
-margin-bottom: 40px;
+.play h3 {
+  margin-bottom: 40px;
 }
 
-.play h5 {
+.play h4 {
   text-align: center;
   text-transform: capitalize;
   font-family: 'Open Sans';
-  font-weight: 400;
   font-size: 14px;
   color: #777;
 }
@@ -233,29 +209,30 @@ footer {
 
 footer p {
   text-align: center;
-  text-transform: uppercase;
-  font-family: 'Open Sans';
-  font-weight: 400;
+
+  font-family: 'Open Sans', Arial, sans-serif;
   margin: 10px 0;
   font-size: 14px;
   line-height: 1.75;
+    text-transform: capitalize;
+
 }
 
 footer p:first-child {
-  font-family: "Roboto",  Arial, sans-serif;
-  font-weight: 700;
+  font-family: "Roboto", Arial, sans-serif;
+    text-transform: uppercase;
 }
 
 .footer-bottom {
   background: #000;
   text-align: center;
   padding: 20px;
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', Arial, sans-serif;
+    text-transform: none;
 }
 
 footer a {
   color: #fff;
-
 }
 
 footer a:hover {

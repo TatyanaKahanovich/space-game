@@ -300,7 +300,7 @@
 
         if(lastLives < 0){
             const style = { font: '44px "Comic Sans MS Regular"', fill: '#fff', align: 'center'};
-            this.scoreText = this.game.add.text((WIDTH/2 - 300), (HEIGHT - 220)/2, 'Game Over. Yor Score Is: ' + lastScore,style);
+            this.scoreText = this.game.add.text((WIDTH/2 - 270), (HEIGHT - 220)/2, 'Game Over. Yor Score Is: ' + lastScore,style);
         }
 
         const style = { font: '50px "Comic Sans MS Regular"', fill: '#b735b2', align: 'center' };
