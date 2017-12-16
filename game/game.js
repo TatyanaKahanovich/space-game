@@ -304,7 +304,7 @@
         }
 
         const style = { font: '50px "Comic Sans MS Regular"', fill: '#b735b2', align: 'center' };
-        this.title = this.game.add.text((WIDTH/2 - 270),(HEIGHT - 120)/2,'Guardian of the Galaxy',style);
+        this.title = this.game.add.text((WIDTH/2 - 270),(HEIGHT - 120)/2,'The Guardian of the Galaxy',style);
 
         const style2 = { font: '32px "Comic Sans MS Regular"', fill: '#b735b2', align: 'center' };
         this.help = this.game.add.text((WIDTH/2 - 170),HEIGHT/2 + 50,'Press `Enter` to start',style2);

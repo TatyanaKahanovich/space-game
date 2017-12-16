@@ -87,10 +87,8 @@ header {
 }
 
 button {
-  color: #fff;
   background-color: #ffff00;
   border-color: #fed136;
-
   text-transform: uppercase;
   font-weight: 700;
   border-radius: 3px;
@@ -98,16 +96,26 @@ button {
   padding: 20px 40px;
 }
 
+button a {
+  color: #fff;
+}
+
+button:hover {
+  background-color: #ac66d6;
+  border-color: #7b4899;
+  transition-duration: 0.8s;
+}
+
 /*.top {
   top: 0;
   background: #000;
 }*/
 
-.about-game, .controls {
+.about-game, .controls, .play, .screenshots {
   padding: 120px 0 100px 0;
 }
 
-.about-game h3, .description h4, .controls h4, .screenshots h4 {
+.about-game h3, .description h4, .controls h4, .screenshots h4, .play h4 {
   font-size: 40px;
   margin-bottom: 15px;
   font-family: "Roboto",  Arial, sans-serif;
@@ -167,14 +175,10 @@ button {
     height: 50%;
 }
 
-.description p {
-  padding-top: 60px;
-}
-
-.description h4, .controls h4, .screenshots h4 {
+.description h4, .controls h4, .screenshots h4, .play h4 {
   width: 100%;
   color: #000;
-      margin-bottom: 80px;
+  margin-bottom: 80px;
 }
 
 .control.left {
@@ -186,7 +190,7 @@ margin-top: 65px;
 }
 
 .screenshots {
-  margin-top: 100px;
+  background-color: #eee;
 }
 
 .screenshots img {
@@ -201,8 +205,26 @@ margin-top: 65px;
   justify-content: space-around;
 }
 
+.play h4 {
+margin-bottom: 40px;
+}
+
+.play h5 {
+  text-align: center;
+  text-transform: capitalize;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-size: 14px;
+  color: #777;
+}
+
+.play button {
+  margin: 20px auto;
+  display: block;
+}
+
 footer {
-  background-color: #ededed;
+  background-color: #eee;
   color: #544f4d;
   height: 120px;
   font-size: 11px;
@@ -225,7 +247,7 @@ footer p:first-child {
 }
 
 .footer-bottom {
-  background: black;
+  background: #000;
   text-align: center;
   padding: 20px;
   font-family: 'Open Sans';
