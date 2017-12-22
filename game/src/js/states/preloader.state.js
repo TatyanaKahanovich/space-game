@@ -27,7 +27,7 @@ export default class PreloaderState extends Phaser.State {
     this.game.load.spritesheet('enemyship4', './assets/images/enemy3.png', 40, 30);
     this.game.load.spritesheet('enemyship5', './assets/images/enemy4.png', 40, 30);
     this.game.load.spritesheet('hole', './assets/images/hole.png', 40, 40);
-    this.game.load.spritesheet('barrel', './assets/images/barrel1.png', 25, 40);
+    this.game.load.spritesheet('barrel', './assets/images/barrel.png', 25, 40);
     this.game.load.spritesheet('explosion', './assets/images/explode.png', 128, 128);
 
     this.game.load.audio('spaceMusic', './assets/audio/space.mp3');

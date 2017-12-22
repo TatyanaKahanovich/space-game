@@ -10,7 +10,7 @@ import MainState        from './states/main.state';
 class Game extends Phaser.Game {
 
 	constructor() {
-		super(window.innerWidth, 570, Phaser.AUTO, 'play');
+		super(window.innerWidth, 550, Phaser.AUTO, 'play');
 
     this.state.add('boot', BootState, false);
     this.state.add('preloader', PreloaderState, false);

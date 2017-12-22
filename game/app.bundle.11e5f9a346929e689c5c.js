@@ -125,7 +125,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 class Game extends __WEBPACK_IMPORTED_MODULE_2_phaser___default.a.Game {
 
 	constructor() {
-		super(window.innerWidth, 570, __WEBPACK_IMPORTED_MODULE_2_phaser___default.a.AUTO, 'play');
+		super(window.innerWidth, 550, __WEBPACK_IMPORTED_MODULE_2_phaser___default.a.AUTO, 'play');
 
     this.state.add('boot', __WEBPACK_IMPORTED_MODULE_3__states_boot_state__["a" /* default */], false);
     this.state.add('preloader', __WEBPACK_IMPORTED_MODULE_4__states_preloader_state__["a" /* default */], false);
@@ -103520,7 +103520,7 @@ class PreloaderState extends __WEBPACK_IMPORTED_MODULE_0_phaser___default.a.Stat
     this.game.load.spritesheet('enemyship4', './assets/images/enemy3.png', 40, 30);
     this.game.load.spritesheet('enemyship5', './assets/images/enemy4.png', 40, 30);
     this.game.load.spritesheet('hole', './assets/images/hole.png', 40, 40);
-    this.game.load.spritesheet('barrel', './assets/images/barrel1.png', 25, 40);
+    this.game.load.spritesheet('barrel', './assets/images/barrel.png', 25, 40);
     this.game.load.spritesheet('explosion', './assets/images/explode.png', 128, 128);
 
     this.game.load.audio('spaceMusic', './assets/audio/space.mp3');
@@ -103679,7 +103679,7 @@ class MainState extends __WEBPACK_IMPORTED_MODULE_0_phaser___default.a.State {
 		super(game);
     this.game = game;
     this.width = window.innerWidth;
-    this.height = 570;
+    this.height = 550;
     this.lastBullet = 0;
     this.lastEnemy = 0;
     this.lastTick = 0;

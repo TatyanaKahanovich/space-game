@@ -9,7 +9,7 @@ export default class MainState extends Phaser.State {
 		super(game);
     this.game = game;
     this.width = window.innerWidth;
-    this.height = 570;
+    this.height = 550;
     this.lastBullet = 0;
     this.lastEnemy = 0;
     this.lastTick = 0;
