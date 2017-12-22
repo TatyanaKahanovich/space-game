@@ -1,0 +1,227 @@
+@font-face {
+  font-family: Roboto;
+  src: url(../fonts/Roboto.eot);
+  src: local(Roboto), url(../fonts/Roboto.ttf);
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url(../fonts/OpenSans-Regular.eot);
+  src: local(OpenSans-Regular), url(../fonts/OpenSans-Regular.ttf);
+}
+
+body {
+  width: 100%;
+}
+
+body a {
+  text-decoration: none;
+  font-family: 'Open Sans';
+}
+
+.wrapper {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.menu {
+  padding: 20px 0 10px 0;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #000;
+}
+
+.menu ul{
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu a {
+  color: #fff;
+}
+
+.menu li:not(:first-child) {
+  padding-top: 5px;
+}
+
+.menu a:hover {
+  color: #ac66d6;
+}
+
+.menu li:first-child {
+  margin-right: 100px;
+}
+
+header {
+  background-image : url(../img/farback.jpg);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  text-align: center;
+  color: #fff;
+}
+
+.slider {
+  padding-top: 250px;
+  padding-bottom: 150px;
+}
+
+.slider h2 {
+  font-size: 40px;
+  line-height: 40px;
+  margin-bottom: 25px;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.slider h1 {
+  font-family: "Roboto", Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 75px;
+  line-height: 75px;
+  margin-bottom: 50px;
+}
+
+button {
+  background-color: #ffff00;
+  border-color: #ffff00;
+  text-transform: uppercase;
+  border-radius: 3px;
+  font-size: 18px;
+  padding: 20px 40px;
+  border-style: none;
+}
+
+button a {
+  color: #fff;
+}
+
+button:hover {
+  background-color: #ac66d6;
+  border-color: #7ac66d6;
+  transition-duration: 0.8s;
+}
+
+.about, .controls, .screenshots {
+  padding: 120px 0 100px 0;
+}
+
+.play {
+  padding-top: 60px;
+}
+
+h3 {
+  font-size: 40px;
+  margin-bottom: 15px;
+  font-family: "Roboto",  Arial, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  color: #000;
+  margin-bottom: 80px;
+}
+
+.about p, .description, .controls p {
+  font-family: 'Open Sans', Arial, sans-serif;
+  text-transform: none;
+  color: #777;
+  margin: 15px 0;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.about-parts {
+  margin-top: 70px;
+}
+
+.about-parts section {
+  width: 25%;
+  text-align: center;
+  margin: 15px 0;
+  text-transform: capitalize;
+  font-family: "Roboto",  Arial, sans-serif;
+  font-size: 18px;
+}
+
+.img-circle {
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.description {
+  background-color: #eee;
+  padding: 80px 0 80px 0;
+}
+
+.description p, .description img {
+  width: 50%;
+  font-size: 16px;
+}
+
+.description img {
+  height: 50%;
+}
+
+.controls p {
+  margin-top: 65px;
+}
+
+.screenshots {
+  background-color: #eee;
+}
+
+.screenshots img {
+  width: 50%;
+  height: 50%;
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+footer {
+  background-color: #eee;
+  color: #544f4d;
+  height: 120px;
+  font-size: 11px;
+  padding-top: 20px;
+}
+
+footer p {
+  text-align: center;
+
+  font-family: 'Open Sans', Arial, sans-serif;
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.75;
+    text-transform: capitalize;
+
+}
+
+footer p:first-child {
+  font-family: "Roboto", Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.footer-bottom {
+  background: #000;
+  text-align: center;
+  padding: 20px;
+  font-family: 'Open Sans', Arial, sans-serif;
+    text-transform: none;
+}
+
+footer a {
+  color: #fff;
+}
+
+footer a:hover {
+  color: #ac66d6;
+}
