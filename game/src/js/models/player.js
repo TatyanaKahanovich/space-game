@@ -20,7 +20,7 @@ export default class Player extends Phaser.Sprite {
     else if(this.game.input.keyboard.isDown(Phaser.Keyboard.W) && this.y > 0){
       this.body.velocity.y = -this.speed;
     }
-    else if(this.game.input.keyboard.isDown(Phaser.Keyboard.X) && this.y < (this.game.height-this.height)){
+    else if(this.game.input.keyboard.isDown(Phaser.Keyboard.S) && this.y < (this.game.height-this.height)){
       this.body.velocity.y = +this.speed;
     }
   }

@@ -24,3 +24,8 @@ class Game extends Phaser.Game {
 new Game(); // Initialize the application. It will automatically inject <canvas /> into <body />
 
 
+window.onkeydown = function(e) {
+  if (e.keyCode == 32 && e.target == document.body) {
+    e.preventDefault();
+  }
+};

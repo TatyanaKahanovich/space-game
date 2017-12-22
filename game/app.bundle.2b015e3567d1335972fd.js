@@ -139,7 +139,11 @@ class Game extends __WEBPACK_IMPORTED_MODULE_2_phaser___default.a.Game {
 new Game(); // Initialize the application. It will automatically inject <canvas /> into <body />
 
 
-
+window.onkeydown = function(e) {
+  if (e.keyCode == 32 && e.target == document.body) {
+    e.preventDefault();
+  }
+};
 
 /***/ }),
 /* 3 */
@@ -103760,7 +103764,7 @@ create() {
   update() {
     const currentTime = this.game.time.now;
 
-    if(this.game.input.keyboard.isDown(__WEBPACK_IMPORTED_MODULE_0_phaser___default.a.Keyboard.S)){
+    if(this.game.input.keyboard.isDown(__WEBPACK_IMPORTED_MODULE_0_phaser___default.a.Keyboard.SPACEBAR)){
       if(currentTime - this.lastBullet > 300){
         this.fireBullet();
         this.lastBullet = currentTime;
@@ -103999,7 +104003,7 @@ class Player extends Phaser.Sprite {
     else if(this.game.input.keyboard.isDown(Phaser.Keyboard.W) && this.y > 0){
       this.body.velocity.y = -this.speed;
     }
-    else if(this.game.input.keyboard.isDown(Phaser.Keyboard.X) && this.y < (this.game.height-this.height)){
+    else if(this.game.input.keyboard.isDown(Phaser.Keyboard.S) && this.y < (this.game.height-this.height)){
       this.body.velocity.y = +this.speed;
     }
   }

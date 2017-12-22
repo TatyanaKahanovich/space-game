@@ -94,7 +94,7 @@ create() {
   update() {
     const currentTime = this.game.time.now;
 
-    if(this.game.input.keyboard.isDown(Phaser.Keyboard.S)){
+    if(this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)){
       if(currentTime - this.lastBullet > 300){
         this.fireBullet();
         this.lastBullet = currentTime;
