@@ -103711,7 +103711,6 @@ create() {
       game: this.game,
       x: 0,
       y: this.game.world.centerY,
-      leaves: 3,
       asset: 'ship',
       frame: 20,
       speed: 120
@@ -103749,7 +103748,11 @@ create() {
       explosion.animations.add('explosion');
     });
 
-    const style = { font: '28px "Comic Sans MS Regular"', fill: '#b735b2', align: 'left'};
+    const style = {
+      font: '28px "Comic Sans MS Regular"',
+      fill: '#b735b2',
+      align: 'left'
+    };
     this.scoreText = this.game.add.text(15, 15, 'Score : ' + this.game.score,style);
     this.livesText = this.game.add.text(this.width - 130, (15), 'Lives : ' + this.game.lives,style);
 
@@ -103861,7 +103864,7 @@ create() {
   fireBullet(currentTime) {
     let bullet = this.bullets.getFirstExists(false);
     if(bullet){
-      bullet.reset(this.player.x+this.player.width,this.player.y+this.player.height/2);
+      bullet.reset(this.player.x + this.player.width,this.player.y + this.player.height/2);
       bullet.body.velocity.x = this.bulletSpeed;
     }
     this.blasterMusic.play();
@@ -103870,7 +103873,7 @@ create() {
   generateEnemy(data) {
     let enemy = this.enemies.getFirstExists(false);
     let barrel = this.barrels.getFirstExists(false);
-    if (enemy) {
+    if(enemy){
       enemy.reset(data);
 
     } else {
