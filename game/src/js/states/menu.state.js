@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import TextButton from '../extensions/textbutton';
 
-// The first (boot) state of the game
+// The Menu state of the game
 export default class MenuState extends Phaser.State {
   constructor() {
 		super();
@@ -19,7 +19,6 @@ export default class MenuState extends Phaser.State {
     this.bg = this.game.add.tileSprite(0,0,1920,1080,'bgSpace');
     this.bg1 = this.game.add.tileSprite(0,0,1920,1024,'bgSpace1');
     this.bg.autoScroll(-this.speed,0);
-
     this.bg1.autoScroll(-this.bg1Speed,0);
 
     let centerX = this.game.world.centerX;
@@ -45,7 +44,7 @@ export default class MenuState extends Phaser.State {
       upFrame: 1,
       label: 'Start',
       style: {
-          font: '16px Verdana',
+          font: '16px Roboto',
           fill: 'white',
           align: 'center'
       }
@@ -61,7 +60,7 @@ export default class MenuState extends Phaser.State {
 
     this.start.onInputUp.add(()=>{
       this.music.stop();
-      this.state.start('main');
+      this.state.start('main'); // Switch to main game state
     });
 
     this.menuPanel = this.add.group();
@@ -70,7 +69,7 @@ export default class MenuState extends Phaser.State {
 
     this.music.loopFull();
 
-    if(this.game.lives < 0){
+    if(this.game.lives < 0){ //if player died for showing score
       const style = {
         font: '44px "Roboto"',
         fill: '#fff',

@@ -13,19 +13,21 @@ export default class MainState extends Phaser.State {
     this.lastBullet = 0;
     this.lastEnemy = 0;
     this.lastTick = 0;
-    this.speed = 120;
+
     this.bg1Speed = 30;
     this.bg2Speed =40;
     this.bg3Speed =50;
-    this.enemySpeed = 150;
-    this.holeSpeed = 150;
-    this.barrelSpeed = 200;
-    this.bulletSpeed = 300;
+
 	}
 
 create() {
-    this.game.lives = 3;
+    this.game.lives = 2;
     this.game.score = 0;
+    this.game.lastScore = 0;
+    this.game.speed = 120;
+    this.holeSpeed = 150;
+    this.barrelSpeed = 150;
+    this.bulletSpeed = 350;
 
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
     this.bg = this.game.add.tileSprite(0,0,1920,1080,'bgSpace');
@@ -57,12 +59,10 @@ create() {
     this.enemies = this.game.add.group();
     this.enemies.enableBody = true;
     this.enemies.physicsBodyType = Phaser.Physics.ARCADE;
-    this.game.stage.addChild(this.enemies);
 
     this.holes = this.game.add.group();
     this.holes.enableBody = true;
     this.holes.physicsBodyType = Phaser.Physics.ARCADE;
-    this.game.stage.addChild(this.enemies);
 
     this.barrels = this.game.add.group();
     this.barrels.enableBody = true;
@@ -88,7 +88,6 @@ create() {
 
     this.music = this.game.add.audio('spaceMusic');
     this.music.loopFull();
-
     this.blasterMusic = this.game.add.audio('blasterMusic');
     this.explosionMusic = this.game.add.audio('explosionMusic');
     this.barrelMusic = this.game.add.audio('barrelMusic');
@@ -109,8 +108,8 @@ create() {
         game: this.game,
         x: this.game.width,
         y: (Math.floor(Math.random()*(this.height-30))),
-        asset: 'enemyship1',
-        speed: 150,
+        asset: 'enemyship' + (1 + Math.floor(Math.random()*5)), // random for color diversity of ships
+        speed: this.game.speed*1.1,
         frame: 20
       });
 
@@ -119,63 +118,25 @@ create() {
         x: this.game.width,
         y: (Math.floor(Math.random()*(this.height-30))),
         asset: 'hole',
-        speed: 150,
+        speed: this.game.speed*1.1,
         frame: 20
       });
+
+      this.generateBarrel({
+        game: this.game,
+        x: this.game.width,
+        y: (Math.floor(Math.random()*(this.height-40))),
+        asset: 'barrel',
+        speed: this.game.speed*1.1,
+        frame: 20
+      });
+
       this.lastEnemy = currentTime;
-
-      if(this.game.score > 150){
-        this.generateEnemy({
-          game: this.game,
-          x: this.game.width,
-          y: (Math.floor(Math.random()*(this.height-30))),
-          asset: 'enemyship2',
-          speed: 150,
-          frame: 20
-        });
-      }
-
-      if(this.game.score > 250){
-        this.generateEnemy({
-          game: this.game,
-          x: this.game.width,
-          y: (Math.floor(Math.random()*(this.height-30))),
-          asset: 'enemyship3',
-          speed: 150,
-          frame: 20
-        });
-      }
-
-      if(this.game.score > 350){
-        this.generateEnemy({
-          game: this.game,
-          x: this.game.width,
-          y: (Math.floor(Math.random()*(this.height-30))),
-          asset: 'enemyship4',
-          speed: 150,
-          frame: 20
-        });
-      }
-
-      if(this.game.score > 350){
-        this.generateEnemy({
-          game: this.game,
-          x: this.game.width,
-          y: (Math.floor(Math.random()*(this.height-30))),
-          asset: 'enemyship5',
-          speed: 150,
-          frame: 20
-        });
-      }
     }
 
-    if(currentTime - this.lastTick > 10000 && this.score > 100){
-      if(this.speed < 500){
-        this.speed *= 1.05;
-        this.enemySpeed *= 1.05;
-        this.holeSpeed *= 1.05;
-        this.bulletSpeed *= 1.05;
-        this.barrelSpeed *= 1.1;
+    if(currentTime - this.lastTick > 10000 && this.game.score > 100){
+      if(this.game.speed < 800){
+        this.game.speed *= 1.1; //gradual increase in speed
         this.bg.autoScroll(-this.bg1Speed, 0);
         this.bg1.autoScroll(-this.bg2Speed, 0);
         this.bg2.autoScroll(-this.bg3Speed, 0);
@@ -185,7 +146,7 @@ create() {
 
     this.game.physics.arcade.overlap(this.enemies, this.player, this.enemyHitPlayer, null, this);
     this.game.physics.arcade.overlap(this.player, this.bullets, this.bulletHitPlayer, null, this);
-    this.game.physics.arcade.overlap(this.holes, this.player, this.playerHitHole,null, this);
+    this.game.physics.arcade.overlap(this.holes, this.player, this.playerHitHole, null, this);
     this.game.physics.arcade.overlap(this.enemies, this.bullets, this.enemyHitBullet, null, this);
     this.game.physics.arcade.overlap(this.player, this.barrels, this.playerHitBarrel, null, this);
     this.game.physics.arcade.overlap(this.bullets, this.barrels, this.bulletHitBarrel, null, this);
@@ -201,38 +162,26 @@ create() {
   }
 
   generateEnemy(data) {
-    let enemy = this.enemies.getFirstExists(false);
-    let barrel = this.barrels.getFirstExists(false);
-    if(enemy){
-      enemy.reset(data);
-
-    } else {
-      enemy = new Enemy(data);
-      this.enemies.add(enemy);
+    let enemy = new Enemy(data);
+    this.enemies.add(enemy);
+    if(this.enemies.children.length > 20){
+      this.enemies.children.splice(0, this.enemies.children.length - 20);
     }
-
-    if(barrel){
-      barrel.reset(this.width,Math.floor(Math.random()*(this.height-40)),'barrel');
-    }
-    else {
-      barrel = this.barrels.create(this.width,Math.floor(Math.random()*(this.height-40)), 'barrel');
-    }
-
-    barrel.body.velocity.x = -this.barrelSpeed;
-    barrel.outOfBoundsKill = true;
-    barrel.checkWorldBounds = true;
-    barrel.animations.add('move');
-    barrel.animations.play('move', 6, true);
   }
 
   generateHole(data) {
-    let hole = this.holes.getFirstExists(false);
-    if (hole) {
-      hole.reset(data);
+    let hole = new Enemy(data);
+    this.holes.add(hole);
+    if(this.holes.children.length > 15){
+      this.holes.children.splice(0, this.holes.children.length - 15);
+    }
+  }
 
-    } else {
-      hole = new Enemy(data);
-      this.holes.add(hole);
+  generateBarrel(data) {
+    let barrel = new Enemy(data);
+    this.barrels.add(barrel);
+    if(this.barrels.children.length > 30){
+      this.barrels.children.splice(0, this.barrels.children.length - 30);
     }
   }
 
@@ -270,8 +219,15 @@ create() {
   }
 
   playerHitHole(player, hole) {
-    let rand = 1 + Math.floor(Math.random()*(this.holes.children.length-1));
-    let newPosition = this.holes.children[rand].position;
+    let rand, newPosition;
+    while(hole){
+      rand = 1 + Math.floor(Math.random()*(this.holes.children.length-1));
+      newPosition = this.holes.children[rand].position;
+      if(newPosition.x > 0 && newPosition.y > 0 && newPosition.x < this.width - 80){ //for choosing only visible holes
+        break;
+      }
+    }
+
     this.player.position.x = newPosition.x + 40;
     this.player.position.y = newPosition.y;
     this.jumpMusic.play();
@@ -300,7 +256,6 @@ create() {
 
   subLife(player) {
     this.game.lives -= 1;
-    this.game.lastLives  = this.lives;
     this.livesText.setText('Lives : '+ this.game.lives);
     this.checkIsAlive(player);
   }

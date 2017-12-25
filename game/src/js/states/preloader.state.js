@@ -4,6 +4,7 @@ import Phaser from 'phaser';
 export default class PreloaderState extends Phaser.State {
   preload() {
     console.debug('Assets loading started');
+
     this.loaderBg = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'loaderBg');
     this.loaderBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'loaderBar');
     this.loaderBg.anchor.setTo(0.5);
@@ -35,11 +36,11 @@ export default class PreloaderState extends Phaser.State {
     this.game.load.audio('explosionMusic', './assets/audio/explosion.mp3');
     this.game.load.audio('barrelMusic', './assets/audio/barrelSound.mp3');
     this.game.load.audio('jumpMusic', './assets/audio/jump.mp3');
-    this.game.load.audio('menuMusic', './assets/audio/menu.mp3');
+    this.game.load.audio('menuMusic', './assets/audio/menu.mp3'); //load all images, sprites and music
   }
 
   create() {
     console.debug('Assets loading completed');
-    this.game.state.start('menu'); // Switch to main game state
+    this.game.state.start('menu'); // Switch to menu state
   }
 }

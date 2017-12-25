@@ -9,8 +9,6 @@ export default class Enemy extends Phaser.Sprite {
     this.asset = asset;
     this.frame = frame;
 
-    this.lastBullet = 0;
-    this.lastEnemy = 0;
     this.lastTick = 0;
 
     this.animations.add('spinning', [0, 1, 2, 3, 4, 5], 20, true);
@@ -18,9 +16,16 @@ export default class Enemy extends Phaser.Sprite {
   }
 
   update() {
+    const currentTime = this.game.time.now;
     this.body.velocity.x = -this.speed;
     this.outOfBoundsKill = true;
     this.checkWorldBounds = true;
+    if(currentTime - this.lastTick > 10000 && this.game.score > 100){
+      if(this.game.speed < 800){
+        this.speed *= 1.1;;
+        this.lastTick = currentTime;
+      }
+    }
   }
 }
 

@@ -103839,13 +103839,13 @@ create() {
       }
     }
 
-    if(currentTime - this.lastTick > 10000 && this.score > 100){
+    if(currentTime - this.lastTick > 10000 && this.game.score > 100){
       if(this.speed < 500){
-        this.speed *= 1.05;
-        this.enemySpeed *= 1.05;
-        this.holeSpeed *= 1.05;
-        this.bulletSpeed *= 1.05;
-        this.barrelSpeed *= 1.1;
+        this.speed *= 1.1;
+        this.enemySpeed *= 1.1;
+        this.holeSpeed *= 1.1;
+        this.bulletSpeed *= 1.1;
+        this.barrelSpeed *= 1.2;
         this.bg.autoScroll(-this.bg1Speed, 0);
         this.bg1.autoScroll(-this.bg2Speed, 0);
         this.bg2.autoScroll(-this.bg3Speed, 0);
@@ -104044,6 +104044,13 @@ class Enemy extends Phaser.Sprite {
     this.body.velocity.x = -this.speed;
     this.outOfBoundsKill = true;
     this.checkWorldBounds = true;
+    const currentTime = this.game.time.now;
+    if(currentTime - this.lastTick > 10000 && this.game.score > 100){
+      if(this.speed < 500){
+        this.speed *= 1.1;
+        this.lastTick = currentTime;
+      }
+    }
   }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Enemy;
